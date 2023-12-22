@@ -558,6 +558,16 @@ require('which-key').register({
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
+require('mason-null-ls').setup({
+  ensure_installed = {
+    "mypy",
+    "ruff",
+    "black",
+    "debugpy",
+  },
+  automatic_installation = false,
+  handlers = {},
+})
 require('mason-lspconfig').setup()
 
 -- Enable the following language servers
