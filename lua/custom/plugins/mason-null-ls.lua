@@ -1,4 +1,5 @@
 -- MAKE SURE NODE IS INSTALLED
+-- MAKE SURE GO PACKAGES ARE INSTALLED. Ex: go install <package link> or brew install <package_name>
 return {
     "jay-babu/mason-null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -12,6 +13,9 @@ return {
 
       null_ls.setup({
         sources = {
+          null_ls.builtins.formatting.gofumpt,
+          null_ls.builtins.formatting.goimports_reviser,
+          null_ls.builtins.formatting.golines,
           null_ls.builtins.formatting.black,
           null_ls.builtins.diagnostics.ruff,
           null_ls.builtins.diagnostics.mypy.with({
