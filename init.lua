@@ -276,6 +276,9 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Additional options
+require 'opts'
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -318,13 +321,12 @@ vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 
+-- Additional keymaps
+require 'keymaps'
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Keymap from The Primeagen to move lines while in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
