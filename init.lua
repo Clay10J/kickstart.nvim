@@ -276,6 +276,9 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Additional options
+require 'opts'
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -317,6 +320,9 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+
+-- Additional keymaps
+require 'keymaps'
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -429,7 +435,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'html', 'dockerfile', 'toml', 'yaml' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -609,7 +615,7 @@ local servers = {
   pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {
     Lua = {
@@ -619,6 +625,8 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
+  dockerls = {},
+  docker_compose_language_service = {},
 }
 
 -- Setup neovim lua configuration
