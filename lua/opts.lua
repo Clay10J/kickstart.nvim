@@ -9,3 +9,5 @@ vim.opt.tabstop = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = true
+
+vim.opt.scrolloff = 8
