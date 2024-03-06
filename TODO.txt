@@ -1,0 +1,13 @@
+- TJDevries new kickstart video for reference
+- can reference ThePrimeagen's new config (https://github.com/ThePrimeagen/neovimrc/)
+- add keymaps for trouble (https://github.com/folke/trouble.nvim)
+- look into neoclip (https://github.com/AckslD/nvim-neoclip.lua)
+- look into neogen (https://github.com/danymat/neogen)
+- look into neotest (https://github.com/nvim-neotest/neotest)
+- look into undotree (https://github.com/mbbill/undotree)
+- look into conform (https://github.com/stevearc/conform.nvim)
+- look into mason-tool-installer (https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
+- look into mini (https://github.com/echasnovski/mini.nvim)
+- look into go-nvim (https://github.com/ray-x/go.nvim)
+- look into refactoring (https://github.com/ThePrimeagen/refactoring.nvim)
+- set up python debugging
