@@ -20,32 +20,39 @@ return {
       desc = 'harpoon toggle quick menu',
     },
     {
-      '<C-h>',
+      '<space>1',
       function()
         require('harpoon'):list():select(1)
       end,
       desc = 'harpoon to file 1',
     },
     {
-      '<C-t>',
+      '<space>2',
       function()
         require('harpoon'):list():select(2)
       end,
       desc = 'harpoon to file 2',
     },
     {
-      '<C-n>',
+      '<space>3',
       function()
         require('harpoon'):list():select(3)
       end,
       desc = 'harpoon to file 3',
     },
     {
-      '<C-s>',
+      '<space>4',
       function()
         require('harpoon'):list():select(4)
       end,
       desc = 'harpoon to file 4',
+    },
+    {
+      '<space>5',
+      function()
+        require('harpoon'):list():select(5)
+      end,
+      desc = 'harpoon to file 5',
     },
     -- Toggle previous & next buffers stored within Harpoon list
     {
