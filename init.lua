@@ -647,6 +647,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'black',
         'isort',
+        'markdownlint',
         'mypy',
         'stylua', -- Used to format Lua code
         'tflint', -- Used for terraform
