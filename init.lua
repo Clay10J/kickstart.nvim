@@ -614,6 +614,8 @@ require('lazy').setup({
           },
         },
 
+        marksman = {},
+
         pyright = {},
 
         ruff_lsp = {},
@@ -647,7 +649,8 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'black',
         'isort',
-        'markdownlint',
+        'markdownlint-cli2',
+        'markdown-toc',
         'mypy',
         'stylua', -- Used to format Lua code
         'tflint', -- Used for terraform
@@ -683,6 +686,17 @@ require('lazy').setup({
       },
     },
     opts = {
+      formatters = {
+        ['markdown-toc'] = {
+          condition = function(_, ctx)
+            for _, line in ipairs(vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)) do
+              if line:find '<!%-%- toc %-%->' then
+                return true
+              end
+            end
+          end,
+        },
+      },
       notify_on_error = false,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -696,11 +710,13 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        markdown = { 'markdown-cli2', 'markdown-toc' },
+        ['markdown.mdx'] = { 'markdown-cli2', 'markdown-toc' },
+        python = { 'isort', 'black' },
         terraform = { 'terraform_fmt' },
         tf = { 'terraform_fmt' },
         ['terraform-vars'] = { 'terraform_fmt' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -921,7 +937,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
