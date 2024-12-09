@@ -284,19 +284,25 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+      require('which-key').add {
+        { '<leader>c', group = '[C]ode' },
+        { '<leader>c_', hidden = true },
+        { '<leader>d', group = '[D]ocument' },
+        { '<leader>d_', hidden = true },
+        { '<leader>h', group = 'Git [H]unk' },
+        { '<leader>h_', hidden = true },
+        { '<leader>r', group = '[R]ename' },
+        { '<leader>r_', hidden = true },
+        { '<leader>s', group = '[S]earch' },
+        { '<leader>s_', hidden = true },
+        { '<leader>t', group = '[T]oggle' },
+        { '<leader>t_', hidden = true },
+        { '<leader>w', group = '[W]orkspace' },
+        { '<leader>w_', hidden = true },
+
+        -- visual mode
+        { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
       }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
     end,
   },
 
@@ -618,8 +624,6 @@ require('lazy').setup({
 
         pyright = {},
 
-        ruff_lsp = {},
-
         terraformls = {},
 
         yamlls = {
@@ -652,6 +656,7 @@ require('lazy').setup({
         'markdownlint-cli2',
         'markdown-toc',
         'mypy',
+        'ruff',
         'stylua', -- Used to format Lua code
         'tflint', -- Used for terraform
       })
@@ -696,6 +701,14 @@ require('lazy').setup({
             end
           end,
         },
+        ['markdownlint-cli2'] = {
+          condition = function(_, ctx)
+            local diag = vim.tbl_filter(function(d)
+              return d.source == 'markdownlint'
+            end, vim.diagnostic.get(ctx.buf))
+            return #diag > 0
+          end,
+        },
       },
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -710,8 +723,8 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        markdown = { 'markdown-cli2', 'markdown-toc' },
-        ['markdown.mdx'] = { 'markdown-cli2', 'markdown-toc' },
+        markdown = { 'markdownlint-cli2', 'markdown-toc' },
+        ['markdown.mdx'] = { 'markdownlint-cli2', 'markdown-toc' },
         python = { 'isort', 'black' },
         terraform = { 'terraform_fmt' },
         tf = { 'terraform_fmt' },
