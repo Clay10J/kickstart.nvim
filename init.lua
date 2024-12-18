@@ -463,6 +463,16 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Search packages (TJDevries 'Advanced telescope' video
+      vim.keymap.set('n', '<leader>sp', function()
+        require('telescope.builtin').find_files {
+          cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy'),
+        }
+      end)
+
+      -- Multigrep (TJDevries 'Advanced telescope' video
+      require('custom.telescope.multigrep').setup()
     end,
   },
 
