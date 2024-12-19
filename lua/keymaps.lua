@@ -4,6 +4,8 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Keymap from TJDevries in the Configure Neovim's Options video at 1:16
 -- for executing current line and sourcing file (for nv config)
-vim.keymap.set('n', '<space>-', '<cmd>source %<CR>')
-vim.keymap.set('n', '<space>*', ':.lua<CR>')
-vim.keymap.set('v', '<space>*', ':lua<CR>')
+vim.keymap.set('n', '<leader>+', '<cmd>source %<CR>', { desc = 'Execute the current file' })
+vim.keymap.set('n', '<leader>*', ':.lua<CR>', { desc = 'Execute the current line' })
+vim.keymap.set('v', '<leader>*', ':lua<CR>')
+
+-- Floaterminal (see plugin/Floaterminal)
