@@ -469,7 +469,7 @@ require('lazy').setup({
         require('telescope.builtin').find_files {
           cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy'),
         }
-      end)
+      end, { desc = '[S]earch [P]ackages' })
 
       -- Multigrep (TJDevries 'Advanced telescope' video
       require('custom.telescope.multigrep').setup()
@@ -1009,7 +1009,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
