@@ -12,6 +12,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- https://www.reddit.com/r/neovim/comments/vxdjyb/comment/itiyb3p/
+if vim.fn.has 'wsl' == 1 then
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    desc = 'Copy to system clipboard',
+    group = vim.api.nvim_create_augroup('yank-system-clipboard', { clear = true }),
+    callback = function()
+      vim.fn.system('clip.exe', vim.fn.getreg '"')
+    end,
+  })
+end
+
 vim.api.nvim_create_autocmd('TermOpen', {
   group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
   callback = function()
