@@ -52,7 +52,7 @@ return {
       }
     end,
     formatters_by_ft = {
-      hcl = { 'packer_fmt' },
+      -- hcl = { 'packer_fmt' },
       lua = { 'stylua' },
       markdown = { 'markdownlint-cli2', 'markdown-toc' },
       ['markdown.mdx'] = { 'markdownlint-cli2', 'markdown-toc' },
