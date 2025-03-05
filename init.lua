@@ -653,6 +653,7 @@ require('lazy').setup({
         'markdownlint-cli2',
         'markdown-toc',
         'mypy',
+        'prettierd',
         'ruff',
         'stylua', -- Used to format Lua code
         'tflint', -- Used for terraform

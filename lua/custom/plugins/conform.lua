@@ -53,6 +53,7 @@ return {
     end,
     formatters_by_ft = {
       -- hcl = { 'packer_fmt' },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
       lua = { 'stylua' },
       markdown = { 'markdownlint-cli2', 'markdown-toc' },
       ['markdown.mdx'] = { 'markdownlint-cli2', 'markdown-toc' },
