@@ -53,14 +53,17 @@ return {
     end,
     formatters_by_ft = {
       -- hcl = { 'packer_fmt' },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      lua = { 'stylua' },
-      markdown = { 'markdownlint-cli2', 'markdown-toc' },
-      ['markdown.mdx'] = { 'markdownlint-cli2', 'markdown-toc' },
-      python = { 'isort', 'black' },
-      terraform = { 'terraform_fmt' },
-      tf = { 'terraform_fmt' },
-      ['terraform-vars'] = { 'terraform_fmt' },
+      -- TODO: Temporary disable
+      -- javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      -- lua = { 'stylua' },
+      -- markdown = { 'markdownlint-cli2', 'markdown-toc' },
+      -- ['markdown.mdx'] = { 'markdownlint-cli2', 'markdown-toc' },
+      -- python = { 'isort', 'black' },
+      -- terraform = { 'terraform_fmt' },
+      -- tf = { 'terraform_fmt' },
+      -- ['terraform-vars'] = { 'terraform_fmt' },
+      -- TODO: Temporary disable
+      --
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
